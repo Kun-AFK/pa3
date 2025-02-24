@@ -49,5 +49,5 @@ ggplot(lang_di, aes(x = Area, y = Stations)) +
 ```{r}
 #| label: Comment-of-Observations
 
-#From the summary of the linear regression model, we know that the estimate of the parameter is β0(intercept) = 1.610e+01, β1(slope) = 2.474e-05, which means that the linear model is y = 1.610e+01 + 2.474e-05*x + error. However the value of Multiple R-squared is 0.4627 means that suggests that only 46.27% of the variation in the number of stations is explained by land area alone.
+#Comment of Observations : From the summary of the linear regression model, we know that the estimate of the parameter is β0(intercept) = 1.610e+01, β1(slope) = 2.474e-05, which means that the linear model is y = 1.610e+01 + 2.474e-05*x + error. However the value of Multiple R-squared is 0.4627 means that suggests that only 46.27% of the variation in the number of stations is explained by land area alone.
 
