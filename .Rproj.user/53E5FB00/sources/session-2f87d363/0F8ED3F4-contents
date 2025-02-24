@@ -19,7 +19,7 @@ library("ggplot2")
 
 
 ```{r}
-#choose dataframe
+#choose dataset and tidy dataset
 lang_di <- language_diversity |>
   pivot_wider(
     names_from = Measurement,
@@ -28,8 +28,7 @@ lang_di <- language_diversity |>
 
 lang_di
 
-
-#select two continue variables and fit the linear regression model
+#select two continue variables, fit the linear regression model and Calculate descriptive statistics of your choice
 Station_Area <- lm(Stations ~ Area, data = lang_di)
 summary(Station_Area)
 

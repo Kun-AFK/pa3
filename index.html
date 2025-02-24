@@ -375,7 +375,7 @@ display: none;
 <pre class="r"><code>library(&quot;untidydata&quot;)
 library(&quot;languageR&quot;)
 library(&quot;ggplot2&quot;)</code></pre>
-<pre class="r"><code>#choose dataframe
+<pre class="r"><code>#choose dataset and tidy dataset
 lang_di &lt;- language_diversity |&gt;
   pivot_wider(
     names_from = Measurement,
@@ -397,7 +397,7 @@ lang_di</code></pre>
 ##  9 Africa    Burkina Faso    75  274000       9242        6  5.17  1.07
 ## 10 Africa    CAR             94  622984       3127       13  8.08  1.21
 ## # ℹ 64 more rows</code></pre>
-<pre class="r"><code>#select two continue variables and fit the linear regression model
+<pre class="r"><code>#select two continue variables, fit the linear regression model and Calculate descriptive statistics of your choice
 Station_Area &lt;- lm(Stations ~ Area, data = lang_di)
 summary(Station_Area)</code></pre>
 <pre><code>## 
