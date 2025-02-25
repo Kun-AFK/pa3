@@ -32,6 +32,9 @@ lang_di
 Station_Area <- lm(Stations ~ Area, data = lang_di)
 summary(Station_Area)
 
+#take log trasnform to the current variabels and fit a new linear regression model
+Log_Station_Area <- lm(log(Stations) ~ log(Area), data = lang_di)
+summary(Log_Station_Area)
 
 #Generate a plot that includes a regression line.
 ggplot(lang_di, aes(x = Area, y = Stations)) +
@@ -43,10 +46,24 @@ ggplot(lang_di, aes(x = Area, y = Stations)) +
     y = "Number of Stations"
   ) +
   theme_minimal()
+
+
+#Generate a plot that includes a new fitted log transform regression line.
+ggplot(lang_di, aes(x = log(Area), y = log(Stations))) + 
+  geom_point(color = "green", size = 2) + 
+  geom_smooth(method = "lm", color = "brown", se = TRUE) + 
+  labs(
+    title = "Regression of log(Stations) on log(Area)", 
+    x = "log(Area)", 
+    y = "log(Stations)"
+  ) + 
+  theme_minimal()
 ```
 
 ```{r}
 #| label: Comment-of-Observations
 
 #Comment of Observations : From the summary of the linear regression model, we know that the estimate of the parameter is β0(intercept) = 1.610e+01, β1(slope) = 2.474e-05, which means that the linear model is y = 1.610e+01 + 2.474e-05*x + error. However the value of Multiple R-squared is 0.4627 means that suggests that only 46.27% of the variation in the number of stations is explained by land area alone.
+
+#Compare with log trasnformed model and original model:The R square value of the original linear model (Stations ~ Area) is 0.4627, indicating that Area explains about 46.27% of the variation in Stations, and Area has a significant positive effect on Stations. However, the residual range is large, indicating that the model has large prediction errors in some areas. The R square value of the log transformed model (log(Stations) ~ log(Area)) is 0.3437. Although the explanatory power is lower, the residual distribution is more concentrated (the log linear plot is look better and more concentrated), the prediction error is smaller, and log(Area) also has a significant positive effect on log(Stations).
 
